@@ -19,5 +19,5 @@
         android:id="@+id/Ej01Fragment"
         android:name="com.example.android_recyclerview.Ej01Fragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second"/>
+        tools:layout="@layout/fragment_ej01"/>
 </navigation>

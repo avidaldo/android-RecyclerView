@@ -40,33 +40,28 @@ class MainFragment : Fragment() {
                 adapter = ArrayAdapter.createFromResource(
                     requireActivity(),
                     R.array.ejemplos,
-                    android.R.layout.simple_spinner_dropdown_item
+                    android.R.layout.list_content
                 )
             }
             .apply {
-                onItemSelectedListener = listener
+                onItemClickListener = onItemClickListener
             }
 
 
     }
 
 
-    object listener : AdapterView.OnItemSelectedListener {
-        override fun onItemSelected(
-            parent: AdapterView<*>,
-            view: View,
-            position: Int,
-            id: Long,
-        ) {
-            Log.i("INFO","""OnItemSelectedListener:
-                parent.selectedItem = ${parent.selectedItem}
-                parent?.getItemAtPosition(position) = ${parent.getItemAtPosition(position)}
+    object onItemClickListener : AdapterView.OnItemClickListener {
+        override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            Log.i("---","""OnItemSelectedListener:
+                parent.selectedItem = ${parent?.selectedItem}
+                parent?.getItemAtPosition(position) = ${parent?.getItemAtPosition(position)}
                 (view as TextView).text = ${(view as TextView).text}
                 position = $position
                 id = $id
                 """.trimIndent())
 
-            parent.findNavController().navigate(
+            parent?.findNavController()?.navigate(
                 when (position) {
                     0 -> MainFragmentDirections.actionFirstFragmentToSecondFragment()
 /*                                1 -> SpinnersFragmentDirections.actionSpinnersFragmentToEj02OnItemSelectedFragment()
@@ -79,6 +74,5 @@ class MainFragment : Fragment() {
             )
         }
 
-        override fun onNothingSelected(parent: AdapterView<*>?) {}
     }
 }
