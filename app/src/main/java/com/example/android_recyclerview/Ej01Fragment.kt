@@ -7,94 +7,83 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android_recyclerview.databinding.FragmentEj01Binding
+import com.example.android_recyclerview.databinding.ElementoBinding
 import java.util.*
 
 
 class Ej01Fragment : Fragment() {
-    private var _binding: FragmentEj01Binding? = null
-    private val binding get() = _binding!!
+/*    private var _binding: FragmentEj01Binding? = null
+    private val binding get() = _binding!!*/
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentEj01Binding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-    /***********************************************************/
-
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        // _binding = FragmentEj01Binding.inflate(inflater, container, false)
 
         val lenguajes: List<String> =
             ArrayList(listOf(*resources.getStringArray(R.array.lenguajes)))
 
-        binding.recyclerView1
-            .apply {  // RecyclerView requiere utilizar un adaptador personalizado
+/*        binding.recyclerView1.
+        return binding.root*/
+
+        val view = inflater.inflate(R.layout.fragment_ej01, container, false)
+
+        if (view is RecyclerView) {
+            with(view) {  // RecyclerView requiere utilizar un adaptador personalizado
                 adapter = Custom1Adapter(lenguajes)
-            }
-            .apply {
-                /* Seteamos el Layaout Manager, que es el que generará la distribución interna de la lista
+
+                /* Seteamos el Layout Manager, que es el que generará la distribución interna de la lista
                 para el número de columnas que queramos. Para una única columna, se utiliza internamente
                 un LinearLayout, generado por LinearLayoutManager; para varias, se utiliza GridLayout */
                 layoutManager = LinearLayoutManager(requireContext());
                 //layoutManager = GridLayoutManager(requireContext(), 3)
             }
+        }
 
-
+        return view
     }
+
+/*    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }*/
 
 
     class Custom1Adapter(private val listadoDatos: List<String>) :
+    /** El constructor recibirá los datos que queramos que el adaptador vuelque a la lista  */
         RecyclerView.Adapter<Custom1Adapter.ViewHolder>() {
-        /** El constructor recibirá los datos que queramos que el adaptador vuelque a la lista  */
 
 
-        /**
-         * Método al que se llama cada vez que se crea uno de los elementos de la lista
-         * Infla una vista definida en "R.layout.elemento" para cada elemento
-         */
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            return ViewHolder(
-                LayoutInflater.from(parent.context)
-                    .inflate(R.layout.elemento, parent, false)
-            )
-        }
-
-        /**
-         * Clase que describe la vista de cada elemento de la lista y su posición en esta.
-         */
-        class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-            val textView: TextView
+        /** Clase que describe la vista de cada elemento de la lista y su posición en esta. */
+        class ViewHolder(binding: ElementoBinding) : RecyclerView.ViewHolder(binding.root) {
+            val textView: TextView = binding.tvElemento
 
             init {
-
-                // Aquí podemos setear un escuchador para cada elemento
-                view.setOnClickListener { v ->
-                    Toast.makeText(
-                        view.context,
-                        "Has elegido: " + (v as TextView).text,
+                textView.setOnClickListener {
+                    Toast.makeText(binding.root.context,
+                        "Has elegido: " + (it as TextView).text,
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-                textView = view.findViewById<View>(R.id.tv_elemento) as TextView
             }
+
+        }
+
+
+        /** Método al que se llama cada vez que se crea uno de los elementos de la lista. */
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+            return ViewHolder(
+                ElementoBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
+                )
+            )
         }
 
         /** Método que vincula en cada elemento, según su posición, los datos correspondientes a
-         * cada elemento
-         */
+         * cada elemento */
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.textView.text = listadoDatos[position]
         }

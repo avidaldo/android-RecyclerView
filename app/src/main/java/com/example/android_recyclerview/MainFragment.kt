@@ -38,20 +38,20 @@ class MainFragment : Fragment() {
         binding.listaEjemplos
             .apply {
                 adapter = ArrayAdapter.createFromResource(
-                    requireActivity(),
+                    requireContext(),
                     R.array.ejemplos,
-                    android.R.layout.list_content
+                    android.R.layout.simple_list_item_1
                 )
             }
             .apply {
-                onItemClickListener = onItemClickListener
+                onItemClickListener = mainOnItemClickListener
             }
 
 
     }
 
 
-    object onItemClickListener : AdapterView.OnItemClickListener {
+    object mainOnItemClickListener : AdapterView.OnItemClickListener {
         override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             Log.i("---","""OnItemSelectedListener:
                 parent.selectedItem = ${parent?.selectedItem}
