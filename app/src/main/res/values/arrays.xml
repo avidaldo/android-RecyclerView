@@ -2,7 +2,8 @@
 <resources>
 
     <string-array name="ejemplos">
-        <item>Ejemplo 1</item>
+        <item>Ejemplo 1a</item>
+        <item>Ejemplo 1b</item>
         <item>Ejemplo 2</item>
         <item>Ejemplo 3</item>
         <item>Ejemplo 4</item>
@@ -10,12 +11,15 @@
     </string-array>
 
     <string-array name="lenguajes">
-        <item>Java</item>
         <item>Kotlin</item>
         <item>Dart</item>
         <item>Swing</item>
+        <item>Java</item>
         <item>C++</item>
         <item>JavaScript</item>
+        <item>Python</item>
+        <item>C#</item>
+        <item>TypeScript</item>
     </string-array>
 
 </resources>

@@ -63,12 +63,12 @@ class MainFragment : Fragment() {
 
             parent?.findNavController()?.navigate(
                 when (position) {
-                    0 -> MainFragmentDirections.actionFirstFragmentToSecondFragment()
-/*                                1 -> SpinnersFragmentDirections.actionSpinnersFragmentToEj02OnItemSelectedFragment()
-                                2 -> SpinnersFragmentDirections.actionSpinnersFragmentToEj03FromArrayFragment()
-                                3 -> SpinnersFragmentDirections.actionSpinnersFragmentToEj04FromResourceFragment()
-                                4 -> SpinnersFragmentDirections.actionSpinnersFragmentToEj05FromArrayListFragment()
-                                5 -> SpinnersFragmentDirections.actionSpinnersFragmentToEj06Fragment()*/
+                    0 -> MainFragmentDirections.actionToEj01aFragment()
+                    1 -> MainFragmentDirections.actionToEj01bFragment()
+                    2 -> MainFragmentDirections.actionToEj02Fragment()
+                    /*   3 -> MainFragmentDirections.actionSpinnersFragmentToEj04FromResourceFragment()
+                         4 -> MainFragmentDirections.actionSpinnersFragmentToEj05FromArrayListFragment()
+                          5 -> MainFragmentDirections.actionSpinnersFragmentToEj06Fragment()*/
                     else -> throw Exception("Ejemplo no existente")
                 }
             )

@@ -1,6 +1,8 @@
 package com.example.android_recyclerview
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,51 +12,38 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android_recyclerview.databinding.ElementoBinding
-import java.util.*
+import com.example.android_recyclerview.databinding.FragmentEj01bBinding
 
 
-class Ej01Fragment : Fragment() {
-/*    private var _binding: FragmentEj01Binding? = null
-    private val binding get() = _binding!!*/
+class Ej02Fragment : Fragment() {
+    private var _binding: FragmentEj01bBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // _binding = FragmentEj01Binding.inflate(inflater, container, false)
+        _binding = FragmentEj01bBinding.inflate(inflater, container, false)
 
         val lenguajes: List<String> =
-            ArrayList(listOf(*resources.getStringArray(R.array.lenguajes)))
+            ArrayList(resources.getStringArray(R.array.lenguajes).asList())
 
-/*        binding.recyclerView1.
-        return binding.root*/
-
-        val view = inflater.inflate(R.layout.fragment_ej01, container, false)
-
-        if (view is RecyclerView) {
-            with(view) {  // RecyclerView requiere utilizar un adaptador personalizado
-                adapter = Custom1Adapter(lenguajes)
-
-                /* Seteamos el Layout Manager, que es el que generará la distribución interna de la lista
-                para el número de columnas que queramos. Para una única columna, se utiliza internamente
-                un LinearLayout, generado por LinearLayoutManager; para varias, se utiliza GridLayout */
-                layoutManager = LinearLayoutManager(requireContext());
-                //layoutManager = GridLayoutManager(requireContext(), 3)
-            }
+        with(binding.recyclerView1) {
+            adapter = Custom2Adapter(lenguajes)
+            layoutManager = LinearLayoutManager(requireContext())
         }
 
-        return view
+        return binding.root
     }
 
-/*    override fun onDestroyView() {
+    override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }*/
+    }
 
 
-    class Custom1Adapter(private val listadoDatos: List<String>) :
-    /** El constructor recibirá los datos que queramos que el adaptador vuelque a la lista  */
-        RecyclerView.Adapter<Custom1Adapter.ViewHolder>() {
+    class Custom2Adapter(private val listadoDatos: List<String>) :
+        RecyclerView.Adapter<Custom2Adapter.ViewHolder>() {
 
 
         /** Clase que describe la vista de cada elemento de la lista y su posición en esta. */
@@ -63,7 +52,8 @@ class Ej01Fragment : Fragment() {
 
             init {
                 textView.setOnClickListener {
-                    Toast.makeText(binding.root.context,
+                    Toast.makeText(
+                        binding.root.context,
                         "Has elegido: " + (it as TextView).text,
                         Toast.LENGTH_SHORT
                     ).show()
@@ -86,6 +76,18 @@ class Ej01Fragment : Fragment() {
          * cada elemento */
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.textView.text = listadoDatos[position]
+
+            /* Modificamos el diseño de cada elemento en función de su posición */
+            if (position % 2 == 0) { // Si la posición de la fila es par
+                holder.textView.setBackgroundColor(Color.CYAN)
+                holder.textView.setTextColor(Color.BLUE)
+                holder.textView.gravity = Gravity.RIGHT
+            } else { // Si la posición es impar
+                holder.textView.setBackgroundColor(Color.TRANSPARENT)
+                holder.textView.setTextColor(Color.BLUE)
+                holder.textView.gravity = Gravity.LEFT
+            }
+
         }
 
         override fun getItemCount(): Int {

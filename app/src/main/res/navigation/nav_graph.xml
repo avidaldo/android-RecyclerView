@@ -10,14 +10,29 @@
         android:name="com.example.android_recyclerview.MainFragment"
         android:label="Main Fragment"
         tools:layout="@layout/fragment_main">
-
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/Ej01Fragment" />
+            android:id="@+id/action_to_Ej01aFragment"
+            app:destination="@id/ej01aFragment" />
+        <action
+            android:id="@+id/action_to_Ej01bFragment"
+            app:destination="@id/ej01bFragment" />
+        <action
+            android:id="@+id/action_to_ej02Fragment"
+            app:destination="@id/ej02Fragment" />
     </fragment>
     <fragment
-        android:id="@+id/Ej01Fragment"
-        android:name="com.example.android_recyclerview.Ej01Fragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_ej01"/>
+        android:id="@+id/ej01aFragment"
+        android:name="com.example.android_recyclerview.Ej01aFragment"
+        android:label="Ejemplo 01a"
+        tools:layout="@layout/fragment_ej01a"/>
+    <fragment
+        android:id="@+id/ej01bFragment"
+        android:name="com.example.android_recyclerview.Ej01bFragment"
+        android:label="Ejemplo 01b"
+        tools:layout="@layout/fragment_ej01b"/>
+    <fragment
+        android:id="@+id/ej02Fragment"
+        android:name="com.example.android_recyclerview.Ej02Fragment"
+        android:label="Ejemplo 02"
+        tools:layout="@layout/fragment_ej01b"/>
 </navigation>
