@@ -19,6 +19,15 @@
         <action
             android:id="@+id/action_to_ej02Fragment"
             app:destination="@id/ej02Fragment" />
+        <action
+            android:id="@+id/action_to_ej03Fragment"
+            app:destination="@id/ej03Fragment" />
+        <action
+            android:id="@+id/action_to_ej04Fragment"
+            app:destination="@id/ej04Fragment" />
+        <action
+            android:id="@+id/action_to_ej05Fragment"
+            app:destination="@id/ej05Fragment" />
     </fragment>
     <fragment
         android:id="@+id/ej01aFragment"
@@ -35,4 +44,16 @@
         android:name="com.example.android_recyclerview.Ej02Fragment"
         android:label="Ejemplo 02"
         tools:layout="@layout/fragment_ej01b"/>
+    <fragment
+        android:id="@+id/ej03Fragment"
+        android:name="com.example.android_recyclerview.Ej03Fragment"
+        android:label="Ej03Fragment" />
+    <fragment
+        android:id="@+id/ej04Fragment"
+        android:name="com.example.android_recyclerview.Ej04Fragment"
+        android:label="Ej04Fragment" />
+    <fragment
+        android:id="@+id/ej05Fragment"
+        android:name="com.example.android_recyclerview.ej05.Ej05Fragment"
+        android:label="Ej05Fragment" />
 </navigation>

@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.android_recyclerview.databinding.FragmentMainBinding
+import java.lang.RuntimeException
 
 class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
@@ -66,10 +67,10 @@ class MainFragment : Fragment() {
                     0 -> MainFragmentDirections.actionToEj01aFragment()
                     1 -> MainFragmentDirections.actionToEj01bFragment()
                     2 -> MainFragmentDirections.actionToEj02Fragment()
-                    /*   3 -> MainFragmentDirections.actionSpinnersFragmentToEj04FromResourceFragment()
-                         4 -> MainFragmentDirections.actionSpinnersFragmentToEj05FromArrayListFragment()
-                          5 -> MainFragmentDirections.actionSpinnersFragmentToEj06Fragment()*/
-                    else -> throw Exception("Ejemplo no existente")
+                    3 -> MainFragmentDirections.actionToEj03Fragment()
+                    4 -> MainFragmentDirections.actionToEj04Fragment()
+                    5 -> MainFragmentDirections.actionToEj05Fragment()
+                    else -> throw RuntimeException("Ejemplo no existente")
                 }
             )
         }

@@ -14,7 +14,6 @@ import com.example.android_recyclerview.databinding.FragmentEj01bBinding
 import java.util.*
 
 
-
 class Ej01bFragment : Fragment() {
     private var _binding: FragmentEj01bBinding? = null
     private val binding get() = _binding!!
@@ -48,7 +47,7 @@ class Ej01bFragment : Fragment() {
 
         /** Clase que describe la vista de cada elemento de la lista y su posición en esta. */
         class ViewHolder(binding: ElementoBinding) : RecyclerView.ViewHolder(binding.root) {
-            val textView: TextView = binding.tvElemento
+            val textView = binding.tvElemento
 
             init {
                 textView.setOnClickListener {

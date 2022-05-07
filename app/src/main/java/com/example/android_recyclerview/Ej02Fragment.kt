@@ -48,7 +48,7 @@ class Ej02Fragment : Fragment() {
 
         /** Clase que describe la vista de cada elemento de la lista y su posición en esta. */
         class ViewHolder(binding: ElementoBinding) : RecyclerView.ViewHolder(binding.root) {
-            val textView: TextView = binding.tvElemento
+            val textView = binding.tvElemento
 
             init {
                 textView.setOnClickListener {
@@ -79,13 +79,15 @@ class Ej02Fragment : Fragment() {
 
             /* Modificamos el diseño de cada elemento en función de su posición */
             if (position % 2 == 0) { // Si la posición de la fila es par
-                holder.textView.setBackgroundColor(Color.CYAN)
-                holder.textView.setTextColor(Color.BLUE)
-                holder.textView.gravity = Gravity.RIGHT
+                with(holder.textView) {
+                    setBackgroundColor(Color.CYAN)
+                    setTextColor(Color.BLUE)
+                    gravity = Gravity.START
+                }
             } else { // Si la posición es impar
                 holder.textView.setBackgroundColor(Color.TRANSPARENT)
                 holder.textView.setTextColor(Color.BLUE)
-                holder.textView.gravity = Gravity.LEFT
+                holder.textView.gravity = Gravity.END
             }
 
         }

@@ -49,7 +49,7 @@ class Ej01aFragment : Fragment() {
 
         /** Clase que describe la vista de cada elemento de la lista y su posición en esta. */
         class ViewHolder(binding: ElementoBinding) : RecyclerView.ViewHolder(binding.root) {
-            val textView: TextView = binding.tvElemento
+            val textView = binding.tvElemento
 
             init {
                 textView.setOnClickListener {
@@ -62,13 +62,12 @@ class Ej01aFragment : Fragment() {
         }
 
         /** Método al que se llama cada vez que se crea uno de los elementos de la lista. */
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            return ViewHolder(
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
                 ElementoBinding.inflate(
                     LayoutInflater.from(parent.context), parent, false
                 )
             )
-        }
+
 
         /** Método que vincula en cada elemento, según su posición, los datos correspondientes a
          * cada elemento */
