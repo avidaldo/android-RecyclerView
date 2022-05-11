@@ -43,8 +43,6 @@ class MainFragment : Fragment() {
                     R.array.ejemplos,
                     android.R.layout.simple_list_item_1
                 )
-            }
-            .apply {
                 onItemClickListener = mainOnItemClickListener
             }
 

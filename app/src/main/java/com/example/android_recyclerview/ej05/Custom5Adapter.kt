@@ -43,10 +43,11 @@ class Custom5Adapter(val listadoDatos: MutableList<LenguajeProg5>) : RecyclerVie
         /* Utilizando la libreía externa Glide (https://bumptech.github.io/glide/) */
         Glide.with(holder.mView.context) // Busca en internet la ruta de una imagen
             .load(listadoDatos[position].uriImagen) // Indicamos una imagen local para usar mientras no se recupera la de Internet
-            .placeholder(R.drawable.generica) // Indicamos la vista de destino
+            //.placeholder(R.drawable.generica) // Indicamos la vista de destino
             .into(holder.imageView)
 
-        /* Modificamos el color de cada elemento en función de su posición */if (position % 2 == 0) {
+        /* Modificamos el color de cada elemento en función de su posición */
+        if (position % 2 == 0) {
             holder.mView.setBackgroundColor(Color.CYAN)
             holder.textView.setTextColor(Color.BLUE)
         } else {
