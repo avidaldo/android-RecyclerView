@@ -62,7 +62,7 @@ class MainFragment : Fragment() {
 
             parent?.findNavController()?.navigate(
                 when (position) {
-                    0 -> MainFragmentDirections.actionToEj01aFragment()
+                    0 -> MainFragmentDirections.actionMainFragmentToEj06Fragment()
                     1 -> MainFragmentDirections.actionToEj01bFragment()
                     2 -> MainFragmentDirections.actionToEj02Fragment()
                     3 -> MainFragmentDirections.actionToEj03Fragment()

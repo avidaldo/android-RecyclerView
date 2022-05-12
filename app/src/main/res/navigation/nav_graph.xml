@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_to_ej05Fragment"
             app:destination="@id/ej05Fragment" />
+        <action
+            android:id="@+id/action_MainFragment_to_ej06Fragment"
+            app:destination="@id/ej06Fragment" />
     </fragment>
     <fragment
         android:id="@+id/ej01aFragment"
@@ -56,4 +59,9 @@
         android:id="@+id/ej05Fragment"
         android:name="com.example.android_recyclerview.ej05.Ej05Fragment"
         android:label="Ej05Fragment" />
+    <fragment
+        android:id="@+id/ej06Fragment"
+        android:name="com.example.android_recyclerview.ej06.Ej06Fragment"
+        android:label="fragment_item_list"
+        tools:layout="@layout/fragment_item_list" />
 </navigation>
