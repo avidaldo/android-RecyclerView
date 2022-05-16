@@ -31,7 +31,6 @@ class Ej04Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         binding.buttonEj4.setOnClickListener {
             cargarLista()
             binding.recyclerView4.visibility=View.VISIBLE
@@ -58,7 +57,6 @@ class Ej04Fragment : Fragment() {
         }
 
     }
-
 
 
 }

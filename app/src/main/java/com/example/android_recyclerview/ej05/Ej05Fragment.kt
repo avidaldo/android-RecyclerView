@@ -7,12 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android_recyclerview.Ej01aFragment
-import com.example.android_recyclerview.Ej03Fragment
-import com.example.android_recyclerview.LenguajeProg
 import com.example.android_recyclerview.R
-import com.example.android_recyclerview.databinding.FragmentEj04Binding
-import java.util.ArrayList
 
 
 class Ej05Fragment : Fragment() {
@@ -21,8 +16,6 @@ class Ej05Fragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View {
-
-
 
         val view = inflater.inflate(R.layout.fragment_ej01a, container, false)
 

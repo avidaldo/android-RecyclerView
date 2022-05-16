@@ -26,7 +26,6 @@ class Ej01aFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_ej01a, container, false)
 
-        //if (view is RecyclerView) {
         with(view as RecyclerView) {  // RecyclerView requiere utilizar un adaptador personalizado
             adapter = Custom1Adapter(lenguajes)
 
@@ -36,7 +35,6 @@ class Ej01aFragment : Fragment() {
             layoutManager = LinearLayoutManager(requireContext());
             //layoutManager = GridLayoutManager(requireContext(), 3)
         }
-        // }
 
         return view
     }
@@ -76,9 +74,7 @@ class Ej01aFragment : Fragment() {
             holder.textView.text = listadoDatos[position]
         }
 
-        override fun getItemCount(): Int {
-            return listadoDatos.size
-        }
+        override fun getItemCount() = listadoDatos.size
     }
 
 

@@ -19,8 +19,8 @@ class Ej03Fragment : Fragment() {
 
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?,
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentEj01bBinding.inflate(inflater, container, false)
 
@@ -51,8 +51,7 @@ class Ej03Fragment : Fragment() {
 
 
     class Custom3Adapter(private val listadoDatos: MutableList<LenguajeProg>) :
-            RecyclerView.Adapter<Custom3Adapter.ViewHolder>() {
-
+        RecyclerView.Adapter<Custom3Adapter.ViewHolder>() {
 
         /** Clase que describe la vista de cada elemento de la lista y su posición en esta. */
         class ViewHolder(binding: Elemento3Binding) : RecyclerView.ViewHolder(binding.root) {
@@ -74,13 +73,12 @@ class Ej03Fragment : Fragment() {
 
 
         /** Método al que se llama cada vez que se crea uno de los elementos de la lista. */
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            return ViewHolder(
-                Elemento3Binding.inflate(
-                    LayoutInflater.from(parent.context), parent, false
-                )
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
+            Elemento3Binding.inflate(
+                LayoutInflater.from(parent.context), parent, false
             )
-        }
+        )
+
 
         /** Método que vincula en cada elemento, según su posición, los datos correspondientes a
          * cada elemento */
@@ -99,9 +97,7 @@ class Ej03Fragment : Fragment() {
             }
         }
 
-        override fun getItemCount(): Int {
-            return listadoDatos.size
-        }
+        override fun getItemCount() = listadoDatos.size
 
     }
 

@@ -7,7 +7,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.android_recyclerview.R
 import com.example.android_recyclerview.databinding.Elemento6Binding
 
 class Custom5Adapter(val listadoDatos: MutableList<LenguajeProg5>) : RecyclerView.Adapter<Custom5Adapter.ViewHolder>() {
@@ -19,15 +18,6 @@ class Custom5Adapter(val listadoDatos: MutableList<LenguajeProg5>) : RecyclerVie
         val textView = binding.textView
         val imageView = binding.imageView
         val remove = binding.remove
-
-        init {
-            textView.setOnClickListener {
-                Toast.makeText(binding.root.context,
-                    "Has elegido: " + binding.textView.text,
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
@@ -40,7 +30,7 @@ class Custom5Adapter(val listadoDatos: MutableList<LenguajeProg5>) : RecyclerVie
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.textView.text = listadoDatos[position].nombre
 
-        /* Utilizando la libreía externa Glide (https://bumptech.github.io/glide/) */
+        /* Utilizando la librería externa Glide (https://bumptech.github.io/glide/) */
         Glide.with(holder.mView.context) // Busca en internet la ruta de una imagen
             .load(listadoDatos[position].uriImagen) // Indicamos una imagen local para usar mientras no se recupera la de Internet
             //.placeholder(R.drawable.generica) // Indicamos la vista de destino
